@@ -11,9 +11,9 @@ namespace RingoLib.Authorization.SignUp.Services.Helper
 			Error = err;
 		}
 
-		internal string UserName { get; }
-		internal string UserId { get; }
-		internal IRError Error { get; }
+		public string UserName { get; }
+		public string UserId { get; }
+		public IRError Error { get; }
 	}
 }
 

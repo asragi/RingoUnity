@@ -2,7 +2,8 @@
     "name": "RingoUnity",
     "rootNamespace": "",
     "references": [
-        "GUID:6a70fa163f4b9432a9fc2c7016adf304"
+        "GUID:6a70fa163f4b9432a9fc2c7016adf304",
+        "GUID:b98c96cdc400f4c1791295381d9e2ed6"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

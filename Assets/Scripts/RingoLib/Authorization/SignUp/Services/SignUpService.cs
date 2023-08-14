@@ -20,8 +20,7 @@ namespace RingoLib.Authorization.SignUp.Services
 			var response = await _userAuthRepo.PostSignUpAsync(
 				userId,
 				userName,
-				request.LoginKey,
-				request.ApplicationKey
+				request.LoginKey
 			);
 			return new(response.UserId, response.UserName, response.Error);
 		}

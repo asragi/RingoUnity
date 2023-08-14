@@ -5,19 +5,16 @@
 		public PostSignUpRequest(
             string userName,
             string userId,
-			string loginKey,
-            string appKey)
+			string loginKey)
 		{
 
 			UserName = userName;
 			UserId = userId;
 			LoginKey = loginKey;
-			ApplicationKey = appKey;
 		}
 
 		internal string UserName { get; }
 		internal string UserId { get; }
 		internal string LoginKey { get; }
-		internal string ApplicationKey { get; }
 	}
 }

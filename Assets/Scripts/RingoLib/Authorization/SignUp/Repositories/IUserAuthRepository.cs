@@ -5,9 +5,8 @@ namespace RingoLib.Authorization.SignUp.Repositories {
 	public interface IUserAuthRepository
 	{
 		Task<PostSignUpRepoResponse> PostSignUpAsync(
-            string userId,
-            string userName,
-            string loginKey,
-            string appKey);
+			string userId,
+			string userName,
+			string loginKey);
 	}
 }
