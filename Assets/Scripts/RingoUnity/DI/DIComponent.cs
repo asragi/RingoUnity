@@ -1,5 +1,6 @@
 ﻿using System.Net.Http;
 using RingoLib.Authorization.SignUp.Infrastructures.HTTP;
+using RingoLib.Authorization.SignUp.Infrastructures.InMemory;
 using RingoLib.Authorization.SignUp.Repositories;
 using RingoLib.Core.Utils;
 using RingoUnity.Utils;
@@ -19,6 +20,10 @@ namespace RingoUnity.DI
             if (Mode == DIMode.Local) {
                 IDGenerator = new UUIDGenerator();
                 UserAuthRepository = new UserAuthRepository(client, json, LocalServerURL);
+	        }
+            if (Mode == DIMode.InMemory) { 
+                IDGenerator = new UUIDGenerator();
+                UserAuthRepository = new UserAuthRepositoryInMemory();
 	        }
         }
 
