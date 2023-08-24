@@ -4,10 +4,10 @@ namespace RingoLib.Search.SearchAction.Repositories.DTO
 {
     public readonly struct GetDetailRepoResponse
     {
-        public GetDetailRepoResponse(Stage stage) {
+        public GetDetailRepoResponse(StageState stage) {
             Stage = stage; 
 	    }
 
-        public Stage Stage { get; }
+        public StageState Stage { get; }
     }
 }

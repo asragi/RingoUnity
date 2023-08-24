@@ -16,4 +16,3 @@ namespace RingoLib.Authorization.SignUp.Services.Helper
 		public IRError Error { get; }
 	}
 }
-

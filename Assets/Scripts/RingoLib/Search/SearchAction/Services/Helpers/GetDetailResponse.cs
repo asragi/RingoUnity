@@ -4,10 +4,10 @@ namespace RingoLib.Search.SearchAction.Services.Helpers
 {
     public readonly struct GetDetailResponse
     {
-        internal GetDetailResponse(Stage stage) {
+        internal GetDetailResponse(StageState stage) {
             Stage = stage;
 	    }
 
-        public Stage Stage { get; }
+        public StageState Stage { get; }
     }
 }

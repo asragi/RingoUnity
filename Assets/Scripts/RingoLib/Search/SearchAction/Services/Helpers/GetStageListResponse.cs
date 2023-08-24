@@ -5,12 +5,12 @@ namespace RingoLib.Search.SearchAction.Services.Helpers
 	public readonly struct GetStageListResponse
 	{
 		public GetStageListResponse(
-			Stage[] stages
+			StageState[] stages
 	    )
 		{
 			Stages = stages;
 		}
 
-		public Stage[] Stages { get; }
+		public StageState[] Stages { get; }
 	}
 }

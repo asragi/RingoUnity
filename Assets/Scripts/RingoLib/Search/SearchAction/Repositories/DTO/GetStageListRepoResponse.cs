@@ -4,6 +4,8 @@ namespace RingoLib.Search.SearchAction.Repositories.DTO
 {
     public readonly struct GetStageListRepoResponse
     {
-        public Stage[] Stages { get; }
+        public GetStageListRepoResponse(StageState[] stages)
+            => Stages = stages;
+        public StageState[] Stages { get; }
     }
 }
