@@ -11,25 +11,26 @@ namespace RingoLib.Search.SearchAction.Infrastructures.InMemory
 	public class UserStageRepositoryInMemory: IUserStageRepository
 	{
         private static readonly StageMasterInMemory _stageMaster;
-		private readonly Dictionary<StageId, StageState> _dict;
+        private static readonly UserStageDataInMemory _userStageDataInMemory;
 
         static UserStageRepositoryInMemory() {
             _stageMaster = new();
+            _userStageDataInMemory = new();
 	    }
 
-		public UserStageRepositoryInMemory()
-		{
-			_dict = new() { };
-		}
-
-        public Task<GetDetailRepoResponse> GetStageDetail(UserId _, StageId stageId)
+        public Task<GetDetailRepoResponse> GetStageDetail(UserId userId, StageId stageId)
         {
-            return new(() => new(_dict[stageId]));
+            var stageMaster = _stageMaster.Get(stageId);
+            var state = _userStageDataInMemory.Get(userId);
+
+            throw new System.NotImplementedException();
+            // return new(() => new(_dict[stageId]));
         }
 
         public Task<GetStageListRepoResponse> GetStageList(UserId _)
         {
-            return new(() => new(_dict.Values.ToArray()));
+            throw new System.NotImplementedException();
+            // return new(() => new(_dict.Values.ToArray()));
         }
     }
 }

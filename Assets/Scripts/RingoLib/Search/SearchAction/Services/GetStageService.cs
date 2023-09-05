@@ -13,14 +13,14 @@ namespace RingoLib.Search.SearchAction.Services
 			_stageRepo = stageRepo;
 		}
 
-		public async Task<GetStageListResponse> Get(GetStageListRequest req) {
+		public async Task<GetStageListResponse> GetStageList(GetStageListRequest req) {
 			var response = await _stageRepo.GetStageList(new(req.UserId));
 			return new(response.Stages);
 		}
 
 		public async Task<GetDetailResponse> GetDetail(GetDetailRequest req) {
 			var response = await _stageRepo.GetStageDetail(req.UserId, req.StageId);
-			return new(response.Stage);
+			return new();
 		}
 	}
 }
