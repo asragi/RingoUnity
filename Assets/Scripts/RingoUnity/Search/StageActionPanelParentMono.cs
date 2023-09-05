@@ -8,15 +8,6 @@ public class StageActionPanelParentMono : MonoBehaviour
     private StageActionPanelMono _stageActionPanelPrefab;
     private float _overallHeight = 0;
 
-    private void Awake()
-    {
-        var actions = new StageActionModel[] {
-            new("‚è‚ñ‚²‚ðÌ‚è‚És‚­", true, true, false, () => { }, () => { }),
-            new("Î‚â–Ø‚ðE‚¢‚És‚­", true, true, true, () => { }, () => { })
-        };
-        Initialize(actions);
-    }
-
     internal void Initialize(StageActionModel[] actions)
     {
         if (actions.Length == 0) return;
