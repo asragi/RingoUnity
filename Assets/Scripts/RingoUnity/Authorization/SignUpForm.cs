@@ -2,7 +2,6 @@ using System;
 using RingoLib.Authorization.SignUp.Services;
 using RingoLib.Core.Error;
 using RingoLib.Core.Utils;
-using UnityEngine;
 
 public class SignUpForm
 {

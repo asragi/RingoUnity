@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using RingoLib.Core.Models;
 using RingoLib.Core.ValueObjects;
 
@@ -20,5 +21,6 @@ namespace RingoLib.Search.SearchAction.Infrastructures.InMemory
 
 		public StageMaster Get(StageId stageId)
 			=> _dict[stageId];
+		public StageMaster[] GetAllStages() => _dict.Values.ToArray();
 	}
 }

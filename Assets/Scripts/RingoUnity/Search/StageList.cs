@@ -1,14 +1,47 @@
+using RingoLib.Core.ValueObjects;
 using RingoLib.Search.SearchAction.Services;
-using System.Collections;
-using System.Collections.Generic;
+using RingoLib.Search.SearchAction.Services.Helpers;
+using System;
 
 public class StageList
 {
+    private readonly UserId _userId;
     private readonly GetStageService _service;
+    private readonly Action<StagePanelModel[]> _onLoadComplete;
+    private readonly Action _onLoadStart;
+    private readonly Action _onLoadFailed;
+
 
     internal StageList(
-        GetStageService service)
+        UserId userId,
+        GetStageService service,
+        Action<StagePanelModel[]> onLoadComplete,
+        Action onLoadStart,
+        Action onLoadFailed)
     {
+        _userId = userId;
         _service = service;
+        _onLoadStart = onLoadStart;
+        _onLoadFailed = onLoadFailed;
+        _onLoadComplete = onLoadComplete;
+    }
+
+    internal void GetStages()
+    {
+        _service.GetStageList(new(
+            _userId.Id
+            )).ContinueWith(res => OnLoadComplete(res.Result));
+        OnLoadStart();
+    }
+
+    private void OnLoadComplete(GetStageListResponse result)
+    {
+        var stages = result.Stages;
+        var arr = new StagePanelModel[stages.Length];
+        _onLoadComplete(arr);
+    }
+
+    private void OnLoadStart() {
+        _onLoadStart();
     }
 }

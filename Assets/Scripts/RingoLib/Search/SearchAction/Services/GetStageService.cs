@@ -14,7 +14,11 @@ namespace RingoLib.Search.SearchAction.Services
 		}
 
 		public async Task<GetStageListResponse> GetStageList(GetStageListRequest req) {
+
+			UnityEngine.Debug.Log("GetStage");
 			var response = await _stageRepo.GetStageList(new(req.UserId));
+			UnityEngine.Debug.Log("GetStageResponse");
+			
 			return new(response.Stages);
 		}
 
