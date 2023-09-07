@@ -17,7 +17,7 @@ namespace RingoUnity.DI
         private static readonly string LocalServerURL = "http://localhost:3000/";
 		[SerializeField] DIMode Mode;
 
-        private void Awake()
+        public void Initialize()
         {
             var client = new HttpClient();
             var json = new RJson();

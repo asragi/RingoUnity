@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 315501891}
   - component: {fileID: 315501890}
   - component: {fileID: 315501889}
+  - component: {fileID: 315501892}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -215,6 +216,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &315501892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 315501888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b02c83778fcacb4993752b674084508, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _di: {fileID: 1798718097}
+  _stageList: {fileID: 1714729690}
 --- !u!1 &678688067
 GameObject:
   m_ObjectHideFlags: 0
@@ -531,6 +546,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4378938708535665757, guid: c3a6a7ccaa9d07f428ef61fd479bafaf, type: 3}
   m_PrefabInstance: {fileID: 1714729688}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1714729690 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5561487385863311016, guid: c3a6a7ccaa9d07f428ef61fd479bafaf, type: 3}
+  m_PrefabInstance: {fileID: 1714729688}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 946740207ad642e49bb705808f63047c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1798718096
 PrefabInstance:
   m_ObjectHideFlags: 0

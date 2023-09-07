@@ -11,6 +11,10 @@ public class StageListMono : MonoBehaviour
     [SerializeField]
     private Transform _stageParent;
 
+    private StagePanelModel[] _stagesToDraw;
+    private bool _isLoading;
+    private bool _isDisplayed;
+
     private void Awake()
     {
         /*
@@ -39,6 +43,30 @@ public class StageListMono : MonoBehaviour
         Initialize();
     }
 
+    private void Update()
+    {
+        DisplayStagePanels();
+    }
+
+    private void DisplayStagePanels()
+    {
+        if (_isDisplayed) return;
+        if (_isLoading) return;
+        CreateStages(_stagesToDraw);
+        _isDisplayed = true;
+
+        void CreateStages(StagePanelModel[] stages)
+        {
+            if (stages.Length == 0) return;
+            for (int i = 0; i < stages.Length; i++)
+            {
+                var stage = stages[i];
+                var stageObject = Instantiate(_stagePanelPrefab, _stageParent);
+                stageObject.Initialize(stage);
+            }
+        }
+    }
+
     internal void Initialize()
     {
         var userStageRepo = _diComponent.UserStageRepository;
@@ -51,25 +79,13 @@ public class StageListMono : MonoBehaviour
 
     private void OnLoadComplete(StagePanelModel[] stageModels)
     {
-        Debug.Log("Complete");
-        CreateStages(stageModels);
-        
-        void CreateStages(StagePanelModel[] stages)
-        {
-            if (stages.Length == 0) return;
-            for (int i = 0; i < stages.Length; i++)
-            {
-                var stage = stages[i];
-                var stageObject = Instantiate(_stagePanelPrefab, _stageParent);
-                stageObject.Initialize(stage);
-                var rectTransform = stageObject.GetComponent<RectTransform>();
-            }
-        }
+        _stagesToDraw = stageModels;
+        _isLoading = false;
     }
 
     private void OnLoadStart()
     {
-        Debug.Log("Start");
+        _isLoading = true;
     }
 
     private void OnLoadFailed()

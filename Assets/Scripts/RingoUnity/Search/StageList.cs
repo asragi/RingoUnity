@@ -2,6 +2,7 @@ using RingoLib.Core.ValueObjects;
 using RingoLib.Search.SearchAction.Services;
 using RingoLib.Search.SearchAction.Services.Helpers;
 using System;
+using System.Linq;
 
 public class StageList
 {
@@ -30,18 +31,39 @@ public class StageList
     {
         _service.GetStageList(new(
             _userId.Id
-            )).ContinueWith(res => OnLoadComplete(res.Result));
+            )).ContinueWith(res => OnLoadComplete(res.Result))
+            .ContinueWith(result => UnityEngine.Debug.Log(result.Exception));
         OnLoadStart();
     }
 
     private void OnLoadComplete(GetStageListResponse result)
     {
         var stages = result.Stages;
-        var arr = new StagePanelModel[stages.Length];
+        var arr = stages.Select(
+            stage => new StagePanelModel(
+                stage.DisplayName,
+                stage.Description,
+                stage.Actions.Select(
+                    action => new StageActionModel(
+                        action.DisplayName,
+                        action.IsPossible,
+                        true,
+                        true, OnValidSelect(action.ExploreActionId), OnInvalidSelect))
+                .ToArray())).ToArray();
         _onLoadComplete(arr);
     }
 
     private void OnLoadStart() {
         _onLoadStart();
+    }
+
+    private Action OnValidSelect(ExploreActionId id)
+    {
+        return () => { };
+    }
+
+    private void OnInvalidSelect()
+    {
+
     }
 }

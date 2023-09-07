@@ -12,9 +12,14 @@ namespace RingoLib.Search.SearchAction.Infrastructures.InMemory
 
         static UserStageDataInMemory()
         {
+            var allStageId = StageMasterInMemory.AllStageId;
+            var userId = UserClientInMemory.MockUserId;
             _dict = new()
             {
-                {UserClientInMemory.MockUserId, new(){ } }
+                {userId, new(){
+                    { allStageId[0], new(userId, allStageId[0], true, true, true, StageMasterInMemory.Explores[allStageId[0]].Select(
+                        id => new ExploreAction(userId, id, true, true, true)).ToArray()) },
+                } }
             };
         }
 

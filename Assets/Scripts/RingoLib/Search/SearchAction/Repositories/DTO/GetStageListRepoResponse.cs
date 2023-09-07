@@ -1,11 +1,9 @@
-﻿using RingoLib.Core.Models;
-
-namespace RingoLib.Search.SearchAction.Repositories.DTO
+﻿namespace RingoLib.Search.SearchAction.Repositories.DTO
 {
     public readonly struct GetStageListRepoResponse
     {
-        public GetStageListRepoResponse(StageState[] stages)
+        public GetStageListRepoResponse(StageInformation[] stages)
             => Stages = stages;
-        public StageState[] Stages { get; }
+        public StageInformation[] Stages { get; }
     }
 }

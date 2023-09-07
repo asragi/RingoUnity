@@ -1,18 +1,20 @@
-﻿using RingoLib.Core.ValueObjects;
+using RingoLib.Core.ValueObjects;
 
-namespace RingoLib.Core.Models
+namespace RingoLib.Search.SearchAction.Repositories.DTO
 {
-    public readonly struct ExploreAction
-    {
-        public ExploreAction(
+	public readonly struct ExploreActionInformation
+	{
+        public ExploreActionInformation(
             UserId userId,
             ExploreActionId id,
             bool isVisible,
             bool isPossible,
-            bool isKnown)
+            bool isKnown,
+            string displayName)
         {
             UserId = userId;
             ExploreActionId = id;
+            DisplayName = displayName;
             IsVisible = isVisible;
             IsPossible = isPossible;
             IsKnown = isKnown;
@@ -20,8 +22,9 @@ namespace RingoLib.Core.Models
 
         public UserId UserId { get; }
         public ExploreActionId ExploreActionId { get; }
+        public string DisplayName { get; }
         public bool IsVisible { get; }
         public bool IsKnown { get; }
         public bool IsPossible { get; }
-    }
+	}
 }
