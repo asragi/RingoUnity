@@ -1,3 +1,4 @@
+using RingoLib.Core.ValueObjects;
 using RingoUnity.DI;
 using UnityEngine;
 
@@ -13,7 +14,12 @@ namespace RingoUnity.Search.Dev
         private void Awake()
         {
             _di.Initialize();
-            _stageList.Initialize();
+            _stageList.Initialize(OnSelect);
+        }
+
+        private void OnSelect(ExploreActionId action)
+        {
+            Debug.Log($"Selected: {action.Id}");
         }
     }
 }

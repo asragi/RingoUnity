@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using RingoLib.Search.SearchAction.Repositories;
 using RingoLib.Search.SearchAction.Services.Helpers;
 

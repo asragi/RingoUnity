@@ -11,6 +11,8 @@ public class StageList
     private readonly Action<StagePanelModel[]> _onLoadComplete;
     private readonly Action _onLoadStart;
     private readonly Action _onLoadFailed;
+    private readonly Action<ExploreActionId> _onValidSelect;
+    private bool _isSelected;
 
 
     internal StageList(
@@ -18,13 +20,15 @@ public class StageList
         GetStageService service,
         Action<StagePanelModel[]> onLoadComplete,
         Action onLoadStart,
-        Action onLoadFailed)
+        Action onLoadFailed,
+        Action<ExploreActionId> onValidSelect)
     {
         _userId = userId;
         _service = service;
         _onLoadStart = onLoadStart;
         _onLoadFailed = onLoadFailed;
         _onLoadComplete = onLoadComplete;
+        _onValidSelect = onValidSelect;
     }
 
     internal void GetStages()
@@ -59,7 +63,12 @@ public class StageList
 
     private Action OnValidSelect(ExploreActionId id)
     {
-        return () => { };
+        return () =>
+        {
+            if (_isSelected) return;
+            _isSelected = true;
+            _onValidSelect(id);
+        };
     }
 
     private void OnInvalidSelect()
