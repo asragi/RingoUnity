@@ -8,6 +8,7 @@ namespace RingoLib.Search.SearchAction.Services.Helpers
             Stage = stage;
 	    }
 
+
         public StageState Stage { get; }
     }
 }

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5957641372088776738}
   - component: {fileID: 6293970690762484970}
   m_Layer: 5
-  m_Name: RequiredItemInformation
+  m_Name: EarnedItemInformation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -159,7 +159,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u5FC5\u8981\u30A2\u30A4\u30C6\u30E0\uFF08\u6D88\u8CBB\u3055\u308C\u308B\u53EF\u80FD\u6027\u304C\u3042\u308A\u307E\u3059\uFF09"
+  m_text: "\u7372\u5F97\u30A2\u30A4\u30C6\u30E0"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 569db19ab98128c49979a1c7165c386d, type: 2}
   m_sharedMaterial: {fileID: 145581974105809284, guid: 569db19ab98128c49979a1c7165c386d, type: 2}
